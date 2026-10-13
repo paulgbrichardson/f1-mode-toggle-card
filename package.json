@@ -16,6 +16,14 @@
     "f1",
     "f1-sensor"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulgbrichardson/f1-mode-toggle-card.git"
+  },
+  "bugs": {
+    "url": "https://github.com/paulgbrichardson/f1-mode-toggle-card/issues"
+  },
+  "homepage": "https://github.com/paulgbrichardson/f1-mode-toggle-card#readme",
   "author": "Paul",
   "license": "MIT"
 }

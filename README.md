@@ -1,7 +1,7 @@
 # F1 Session Mode Toggle Card (`custom:f1-mode-toggle-card`)
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/default)
-[![version](https://img.shields.io/badge/version-2.1.1-green.svg)](https://github.com)
+[![version](https://img.shields.io/badge/version-2.1.1-green.svg)](https://github.com/paulgbrichardson/f1-mode-toggle-card)
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2024.1%2B-blue.svg)](https://www.home-assistant.io)
 
@@ -26,7 +26,7 @@ Engineered to match the authentic **Formula 1 Weekend Hub** design system (`Nicx
 1. In Home Assistant, open **HACS** → **Frontend**.
 2. Click the three dots in the top right corner and choose **Custom repositories**.
 3. Add the repository URL:
-   - **Repository**: `https://github.com/<your-username>/f1-mode-toggle-card`
+   - **Repository**: `https://github.com/paulgbrichardson/f1-mode-toggle-card`
    - **Type**: `Dashboard` (or `Lovelace`)
 4. Click **Add**, find **F1 Session Mode Toggle Card**, and click **Download**.
 5. Reload your browser window.
