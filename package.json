@@ -1,0 +1,21 @@
+{
+  "name": "f1-mode-toggle-card",
+  "version": "2.1.1",
+  "description": "Standalone segmented capsule pill button switching between Live Session and Replay Mode with dynamic telemetry indicator pills for Home Assistant Lovelace",
+  "main": "f1-mode-toggle-card.js",
+  "scripts": {
+    "build": "terser f1-mode-toggle-card.js -o f1-mode-toggle-card.min.js -c -m && cp f1-mode-toggle-card.min.js dist/f1-mode-toggle-card.min.js && cp f1-mode-toggle-card.js dist/f1-mode-toggle-card.js"
+  },
+  "keywords": [
+    "home-assistant",
+    "homeassistant",
+    "hacs",
+    "lovelace",
+    "custom-cards",
+    "formula1",
+    "f1",
+    "f1-sensor"
+  ],
+  "author": "Paul",
+  "license": "MIT"
+}
