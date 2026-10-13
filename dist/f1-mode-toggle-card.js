@@ -1,6 +1,6 @@
 /**
  * F1 Session Mode Toggle Card (custom:f1-mode-toggle-card)
- * Version: 2.1.1
+ * Version: 2.1.2
  * 
  * Standalone segmented capsule pill button switching between Live Session and Replay Mode
  * with dynamic telemetry indicator pills ([SEEKING], [REPLAY PAUSED], REPLAY RUNNING).
@@ -14,7 +14,10 @@ async function ensureF1Fonts() {
     return;
   }
   try {
-    const res = await fetch('/local/f1-sensor-live-data-card/f1-sensor-live-data-card.js');
+    let res = await fetch('/local/f1-sensor-live-data-card/f1-sensor-live-data-card.js');
+    if (!res.ok) {
+      res = await fetch('/hacsfiles/f1-sensor-live-data-card/f1-sensor-live-data-card.js');
+    }
     if (res.ok) {
       const txt = await res.text();
       const fontIdx = txt.indexOf('@font-face');
@@ -26,11 +29,27 @@ async function ensureF1Fonts() {
         style.textContent = fontCss;
         document.head.appendChild(style);
         window._f1FontsLoaded = true;
+        return;
       }
     }
   } catch (e) {
     // Gracefully fallback to system fonts
   }
+
+  const fontUrl = '/local/f1-sensor-live-data-card/fonts/barlow-condensed-latin-700-normal.woff2';
+  const hacsFontUrl = '/hacsfiles/f1-sensor-live-data-card/fonts/barlow-condensed-latin-700-normal.woff2';
+  const fallbackStyle = document.createElement('style');
+  fallbackStyle.setAttribute('data-f1-fonts', 'true');
+  fallbackStyle.textContent = `
+    @font-face {
+      font-family: 'F1 Barlow Condensed';
+      src: url('${fontUrl}') format('woff2'), url('${hacsFontUrl}') format('woff2');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+  `;
+  document.head.appendChild(fallbackStyle);
 
   if (!document.querySelector('link[href*="Barlow+Condensed"]')) {
     const link = document.createElement('link');
@@ -466,7 +485,7 @@ if (!customElements.get('f1-live-control-card')) {
     preview: true,
   });
   console.info(
-    '%c F1-LIVE-CONTROL-CARD %c v2.1.0 ',
+    '%c F1-LIVE-CONTROL-CARD %c v2.1.2 ',
     'color: white; background: #e10600; font-weight: 700;',
     'color: #040711; background: #38bdf8; font-weight: 700;'
   );
@@ -487,7 +506,7 @@ if (!customElements.get('f1-mode-toggle-card')) {
     preview: true,
   });
   console.info(
-    '%c F1-MODE-TOGGLE-CARD %c v2.1.1 ',
+    '%c F1-MODE-TOGGLE-CARD %c v2.1.2 ',
     'color: white; background: #e10600; font-weight: 700;',
     'color: #040711; background: #86efac; font-weight: 700;'
   );
